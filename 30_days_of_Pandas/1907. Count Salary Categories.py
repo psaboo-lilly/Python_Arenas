@@ -51,6 +51,8 @@ import pandas as pd
 def count_salary_categories(accounts: pd.DataFrame) -> pd.DataFrame:
     
     #calculating counts and storing in variables
+
+    # Count(dsitinct <col>) in SQL == <col>.nunique() in Pandas
     low_salary_accts = accounts[accounts['income'] < 20000]['account_id'].nunique()
     avg_salary_accts = accounts[(accounts['income'] >= 20000) & (accounts['income'] <= 50000)]['account_id'].nunique()
     high_salary_accts = accounts[accounts['income'] > 50000]['account_id'].nunique()
